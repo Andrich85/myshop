@@ -78,6 +78,46 @@
         }
         sub_menu_is_showed = -1;
     });
+    
+    /*[ Show login dropdown ]
+    ===========================================================*/
+    $('.js-show-login-dropdown').on('mouseover', function(){
+        $(this).parent().find('.login-dropdown')
+    });
+
+    var menulogin = $('.js-show-login-dropdown');
+    var sub_menu_login_is_showed = -1;
+
+    for(var i=0; i<menulogin.length; i++){
+        $(menulogin[i]).on('mouseover', function(){ 
+            
+                if(jQuery.inArray( this, menulogin ) == sub_menu_is_showed){
+                    $(this).parent().find('.login-dropdown').toggleClass('show-header-dropdown');
+                    sub_menu_login_is_showed = -1;
+                }
+                else {
+                    for (var i = 0; i < menulogin.length; i++) {
+                        $(menulogin[i]).parent().find('.login-dropdown').removeClass("show-header-dropdown");
+                    }
+
+                    $(this).parent().find('.login-dropdown').toggleClass('show-header-dropdown');
+                    sub_menu_login_is_showed = jQuery.inArray( this, menu );
+                }
+        });
+    }
+
+    $(".js-show-login-dropdown, .header-dropdown").click(function(event){
+        event.stopPropagation();
+    });
+
+    $(window).on("click", function(){
+        for (var i = 0; i < menulogin.length; i++) {
+            $(menulogin[i]).parent().find('.login-dropdown').removeClass("show-header-dropdown");
+        }
+        sub_menu_login_is_showed = -1;
+    });
+    
+    
 
 
      /*[ Fixed Header ]

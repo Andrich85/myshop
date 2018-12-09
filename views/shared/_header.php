@@ -77,12 +77,10 @@
 					</nav>
 				</div>
 
-				<!-- Header Icon -->
+				
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
-
+                                        <!-- Login Informations -->
+                                        <?php include('./views/shared/_logininformations.php'); ?>
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
@@ -92,8 +90,6 @@
                                                    <script src="js/cart/cartAjaxActions.js"></script> 
 						<!-- Header cart noti -->
 						<?php include('./views/shared/_cart.php'); ?>
-                                                   
- 
 					</div>
 				</div>
 			</div>

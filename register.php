@@ -5,16 +5,21 @@ IF (!isset($_COOKIE["USER"]))
  setcookie("USER",$cookie_value);
 }
 ?>
+<?php
+//require_once ('../../controllers/products/product.inc.php');
+require_once ('./controllers/register/register.inc.php');
+$_controller = new controllers\Register();
 
-
+?>
 
 
 <head>
-	<title>Product Detail</title>
+	<title>Register</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
   
             <?php include("./views/bundles/bundlescss.php") ?>
+            <?php include("./config.php") ?>
 </head>
 <body class="animsition">
 
@@ -23,11 +28,19 @@ IF (!isset($_COOKIE["USER"]))
         <!-- Bread Crumb -->
 	<?php include("./views/shared/_breadcrumb.php") ?>
 	
-        <!-- Product Detail Content -->
-	<?php include("./views/product-detail/product-detail-content.php") ?>
+        <?php if(isset($_POST["firstName"]))
+                {
+                    $model = $_controller ->register($_POST["firstName"], $_POST["firstName"], $_POST["email"], $_POST["password"]);
+                }
+                else
+                {
+                    include("./views/register/register-content.inc.php");
+                }
+            
+            
+            ?>
 
-        <!-- Related Products -->
-        <?php include("./views/shared/_relatedproducts.php") ?>
+	<?php  ?>
 
         <!-- Footer -->
 	<?php include("./views/shared/_footer.php") ?>
@@ -40,7 +53,7 @@ IF (!isset($_COOKIE["USER"]))
 	<div id="dropDownSelect2"></div>
 
         <!-- Back to Top-->
-        <?php include("./views/product-detail/scripts.php") ?>
+        <?php include("./views/register/scripts.php") ?>
 
 </body>
 </html>
