@@ -19,15 +19,8 @@ class Register {
     public function __construct() {
         //$this->Model = new \model\Product();
         $this->Db = new \repository\DbConnection();
-       
-        // Using the ini_set()
-        // ini_set("SMTP", "tls://smtp.gmail.com");
-        // ini_set("sendmail_from", "noreply@myshop.com");
-        // ini_set("smtp_port", "587");
-        // ini_set("username", "ricciardi85@gmail.com");
-        // ini_set("password", "Argacon1");
-       
-        
+        $this->Verification_code =   $this->createRandomPassword();
+
     }
     
     public function register($_firstName, $_lastName, $_email, $_password)
@@ -35,8 +28,9 @@ class Register {
         $model = [];
         $_db = $this->Db;
         
-       $this->Verification_code =   $this->createRandomPassword();
-       $query = "INSERT INTO customer (password,firstname,lastname,email,verificationcode) VALUES ('$_password', '$_firstName', '$_lastName', '$_email','$verification_code')";
+      
+       $code =  $this->Verification_code;
+       $query = "INSERT INTO customer (password,firstname,lastname,email,verificationcode,registrationdate) VALUES ('$_password', '$_firstName', '$_lastName', '$_email','$code', CURDATE())";
         $_db->runQuery($query);
 
     }
@@ -65,7 +59,7 @@ class Register {
     }
     
     public function sendVerificationEmail($_email, $_password, $_verificationcode){
-        $_ENV['SENDGRID_API_KEY'] = "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";
+        $_ENV['SENDGRID_API_KEY'] = "" //
         $options = $_ENV['SENDGRID_API_KEY'];
       $sendgrid = new \SendGrid($options);
         
@@ -80,7 +74,7 @@ class Register {
                 <p>Username: '.$_email.'</p>
                 <p>Password: '.$_password.'</p>
                 <p>------------------------</p>
-                <p>Please click <a href="localhost/myshop/verify.php?email='.$_email.'&verificationcode='.$_verificationcode.'"> here <a/> to activate your account:</p>
+                <p>Please click <a href="localhost/myshop/verify.php?verify=1&email='.$_email.'&verificationcode='.$_verificationcode.'"> here <a/> to activate your account:</p>
                 <br>
           '; 
             // Our message above including the link
@@ -99,11 +93,28 @@ class Register {
         $sendgrid->send($email);
     }
     
-    public function verifyEmail()
+    public function verifyEmail($_email,$_verificationcode)
     {
+        $_db = $this->Db;
         
+       $table= $_db->getTable("SELECT COUNT(email) FROM customer WHERE email = '$_email' AND verificationcode = '$_verificationcode'");
+       if ($table -> field_count == 0) 
+                {
+                        echo "Email not verified";
+                       
+                }   
+       else
+            {
+                echo "Email verified correctly. Now you can login.";
+                 $query = "UPDATE customer SET emailverified = 1 WHERE email = '$_email'";
+                $_db->runQuery($query);
+            }
+       
+    }
+      
+      
         
     }
-}
+
 
     ?>
