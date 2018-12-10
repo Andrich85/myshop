@@ -20,8 +20,8 @@ else
 
 //require_once ('../../controllers/products/product.inc.php');
 
-$_controller = new controllers\ShoppingCart();
-$model = $_controller ->getContentBySessionId($_COOKIE["USER"]);
+$_shoppingCartController = new controllers\ShoppingCart();
+$model = $_shoppingCartController ->getContentBySessionId($_COOKIE["USER"]);
 ?>
 <section id="shopping-cart-content">
 <!-- Title Page -->

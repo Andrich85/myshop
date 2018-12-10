@@ -1,8 +1,8 @@
 <?php
 //require_once ('../../controllers/products/product.inc.php');
 require_once ('./controllers/products/product.inc.php');
-$_controller = new controllers\Product();
-$model = $_controller ->productDetailContent($_GET["id"]);
+$_registerController = new controllers\Product();
+$model = $_registerController ->productDetailContent($_GET["id"]);
 ?>
 
 <?php foreach ($model as $item){ ?>

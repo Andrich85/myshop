@@ -3,8 +3,8 @@
 require_once ('./controllers/products/product.inc.php');
 
 use controllers\Product;
-$_controller = new controllers\Product();
-$model = $_controller ->featuredItems();
+$_registerController = new controllers\Product();
+$model = $_registerController ->featuredItems();
 ?>
 
 <!-- New Product -->

@@ -9,7 +9,7 @@ if(isset($_POST["cartAction"]))
     include ('./../../controllers/shoppingcart/shoppingcart.inc.php');
     
     
-    $_controller = new controllers\ShoppingCart();
+    $_cartController = new controllers\ShoppingCart();
     
     $action = $_POST["cartAction"];
     $productId = $_POST["productId"];
@@ -25,19 +25,19 @@ if(isset($_POST["cartAction"]))
         switch ($action) {
             
             case "Add":
-               $model =  $_controller->addToShoppingCart($productId);
+               $model =  $_cartController->addToShoppingCart($productId);
                 break;
               case "AddQuantity":
-               $model =  $_controller->addToShoppingCartByQuantity($productId,$quantity);
+               $model =  $_cartController->addToShoppingCartByQuantity($productId,$quantity);
                 break;
             case "Delete":
-                $model =  $_controller->deleteFromShoppingCart($productId);
+                $model =  $_cartController->deleteFromShoppingCart($productId);
                 break;
             case "Reset":
-                $model = $_controller->reset();
+                $model = $_cartController->reset();
                 break;
             default:
-                $model = $_controller ->getContentBySessionId($_controller->SessionId);
+                $model = $_cartController ->getContentBySessionId($_registerController->SessionId);
                 break;
         }
     
@@ -45,8 +45,8 @@ if(isset($_POST["cartAction"]))
 
 else{
     include ('./controllers/shoppingcart/shoppingcart.inc.php');
-    $_controller  = new controllers\ShoppingCart();
-    $model = $_controller -> getContentBySessionId($_controller->SessionId);
+    $_cartController  = new controllers\ShoppingCart();
+    $model = $_cartController -> getContentBySessionId($_cartController->SessionId);
 }
 
 $sum = 0;

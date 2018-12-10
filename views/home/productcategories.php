@@ -3,8 +3,8 @@
 require_once ('./controllers/products/product.inc.php');
 
 use controllers\Product;
-$_controller = new controllers\Product();
-$model = $_controller ->productCategories();
+$_registerController = new controllers\Product();
+$model = $_registerController ->productCategories();
 ?>
 	<!-- Banner -->
 	<section class="banner bgwhite p-t-40 p-b-40">

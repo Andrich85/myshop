@@ -25,7 +25,11 @@ class ShoppingCart
     
     public function __construct() {
         $this->Db = new \repository\DbConnection();
-        $this->SessionId = $_COOKIE["USER"];
+        if (isset($_COOKIE["USER"]))
+        {
+            $this->SessionId = $_COOKIE["USER"];
+        }
+        
         //$this->loadUpSession();
         
     }

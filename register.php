@@ -8,7 +8,7 @@ IF (!isset($_COOKIE["USER"]))
 <?php
 //require_once ('../../controllers/products/product.inc.php');
 require_once ('./controllers/register/register.inc.php');
-$_controller = new controllers\Register();
+$_registerController = new controllers\Register();
 
 ?>
 
@@ -30,7 +30,9 @@ $_controller = new controllers\Register();
 	
         <?php if(isset($_POST["firstName"]))
                 {
-                    $model = $_controller ->register($_POST["firstName"], $_POST["firstName"], $_POST["email"], $_POST["password"]);
+                    $model = $_registerController ->register($_POST["firstName"], $_POST["firstName"], $_POST["email"], $_POST["password"]);
+                    $_registerController ->sendVerificationEmail($_POST["email"], $_POST["password"]);
+                    include("./views/register/confirmation.inc.php");
                 }
                 else
                 {
