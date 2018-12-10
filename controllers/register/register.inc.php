@@ -59,7 +59,7 @@ class Register {
     }
     
     public function sendVerificationEmail($_email, $_password, $_verificationcode){
-        $_ENV['SENDGRID_API_KEY'] = "" //
+        $_ENV['SENDGRID_API_KEY'] = ""; //
         $options = $_ENV['SENDGRID_API_KEY'];
       $sendgrid = new \SendGrid($options);
         
