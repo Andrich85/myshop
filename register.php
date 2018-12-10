@@ -31,18 +31,25 @@ $_registerController = new controllers\Register();
         <?php if(isset($_POST["firstName"]))
                 {
                     $model = $_registerController ->register($_POST["firstName"], $_POST["firstName"], $_POST["email"], $_POST["password"]);
-                    $_registerController ->sendVerificationEmail($_POST["email"], $_POST["password"]);
+                    $_registerController ->sendVerificationEmail($_POST["email"], $_registerController -> getVerificationCode());
                     include("./views/register/confirmation.inc.php");
                 }
                 else
                 {
                     include("./views/register/register-content.inc.php");
                 }
-            
+              if(isset($_GET["verify"]))
+              {
+                  ?> <h3> <?= $_registerController ->verifyEmail($_GET["email"], $GET["hash"]); ?> </h3> 
+                    
+              <?php 
+              }      
             
             ?>
 
 	<?php  ?>
+        
+        
 
         <!-- Footer -->
 	<?php include("./views/shared/_footer.php") ?>
