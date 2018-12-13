@@ -1,9 +1,6 @@
 <?php
 
 namespace controllers;
-require_once './model/products/product.inc.php';
-require_once './repository/dbConnection.inc.php';
-require_once './repository/session.inc.php';
 
 class Product {
  
@@ -15,8 +12,7 @@ class Product {
     public function __construct() {
         //$this->Model = new \model\Product();
         $this->Db = new \repository\DbConnection();
-        // Record Session Data
-        $session = new \repository\Session();
+        
         
     }
     public function getDescription(){}

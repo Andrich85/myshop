@@ -1,6 +1,8 @@
 <?php
-//require_once ('../../controllers/products/product.inc.php');
-require_once ('./controllers/products/product.inc.php');
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/config.php'; ?>
+
+<?php
+
 $_registerController = new controllers\Product();
 $model = $_registerController ->productDetailContent($_GET["id"]);
 ?>

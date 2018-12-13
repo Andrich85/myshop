@@ -1,14 +1,9 @@
 <?php
 
 namespace controllers;
-require_once './model/login/customer.inc.php';
-require_once './repository/dbConnection.inc.php';
-require_once './repository/session.inc.php';
-// using SendGrid's PHP Library
-// https://github.com/sendgrid/sendgrid-php
 
 
-require './vendor/autoload.php';
+
 
 
 class Register {
@@ -16,24 +11,93 @@ class Register {
            
     private $Db;
     private $Verification_code;
+    private $Authorization;
     public function __construct() {
-        //$this->Model = new \model\Product();
-        $this->Db = new \repository\DbConnection();
-        $this->Verification_code =   $this->createRandomPassword();
+                    $this->Db = new \repository\DbConnection();
 
+                    $this->Verification_code =   $this->createRandomPassword();
+                    $this -> Authorization =  $GLOBALS["Authorization"];
+                  
     }
     
-    public function register($_firstName, $_lastName, $_email, $_password)
+//    public function register($_firstName, $_lastName, $_email, $_password)
+//    {
+//        $model = [];
+//        $_db = $this->Db;
+//        
+//      
+//       $code =  $this->Verification_code;
+//       $query = "INSERT INTO customer (password,firstname,lastname,email,verificationcode,registrationdate) VALUES ('$_password', '$_firstName', '$_lastName', '$_email','$code', CURDATE())";
+//        $_db->runQuery($query);
+//
+//    }
+    
+    public function register($_username, $_email, $_password)
     {
-        $model = [];
-        $_db = $this->Db;
         
-      
-       $code =  $this->Verification_code;
-       $query = "INSERT INTO customer (password,firstname,lastname,email,verificationcode,registrationdate) VALUES ('$_password', '$_firstName', '$_lastName', '$_email','$code', CURDATE())";
-        $_db->runQuery($query);
+        
+             try {
+                $userId = $this-> Authorization -> register($_email, $_password, $_username);
+                //});
 
-    }
+                echo 'Thank you for your registration. Please check your email to complete the verification process.';
+            }
+            catch (\Delight\Auth\InvalidEmailException $e) {
+                
+                return "Invalid email.";
+            }
+            catch (\Delight\Auth\InvalidPasswordException $e) {
+                
+                return "Invalid password.";
+            }
+            catch (\Delight\Auth\UserAlreadyExistsException $e) {
+                
+                return "<p>User already exists.</p>";
+                
+            }
+            catch (\Delight\Auth\TooManyRequestsException $e) {
+               
+                echo('Too many requests');
+            }
+}
+function redirect($url, $statusCode = 303)
+{
+   header('Location: ' . $url, true, $statusCode);
+   die();
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public function getVerificationCode()
     {

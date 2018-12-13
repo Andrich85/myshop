@@ -1,53 +1,76 @@
-<?php 
-IF (!isset($_COOKIE["USER"]))
-{
- $cookie_value = rand(192939, 32782) + rand(3939183,4883894) + rand (838138783,4948);
- setcookie("USER",$cookie_value);
-}
-?>
-<?php
-//require_once ('../../controllers/products/product.inc.php');
-require_once ('./controllers/register/register.inc.php');
-$_registerController = new controllers\Register();
-
-?>
-
-
 <head>
 	<title>Register</title>
-	<meta charset="UTF-8">
+	<meta chasrset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  
+            <?php require_once './config.php'; ?>
             <?php include("./views/bundles/bundlescss.php") ?>
-            <?php include("./config.php") ?>
+         
+       
 </head>
 <body class="animsition">
+    
+            <?php
+            //require_once ('../../controllers/products/product.inc.php');
+            
+            $_registerController = new controllers\Register();
+
+            ?>
 
 	<!-- Header -->
 	<?php include("./views/shared/_header.php") ?>
         <!-- Bread Crumb -->
 	<?php include("./views/shared/_breadcrumb.php") ?>
 	
-        <?php if(isset($_POST["firstName"]))
-                {
-                    $model = $_registerController ->register($_POST["firstName"], $_POST["firstName"], $_POST["email"], $_POST["password"]);
-                    $_registerController ->sendVerificationEmail($_POST["email"], $_registerController -> getVerificationCode());
-                    include("./views/register/confirmation.inc.php");
+        <?php if(isset($_POST["userName"]))
+                { 
+                   
+        
+                    
+                     ?>
+                    
+                            <section class="bgwhite p-t-55 p-b-65">
+                                        <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
+                                                                <div class="row" style="text-align:center">
+                                                                <h3 class="m-text26 p-b-36 p-t-15"> <?= $_output ?> </h3> 
+                                                                </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </section>
+                <?php 
+                 
                 }
                 else
                 {
-                    include("./views/register/register-content.inc.php");
-                }
-              if(isset($_GET["verify"]))
-              {
-                  ?> <h3> <?= $_registerController ->verifyEmail($_GET["email"], $GET["hash"]); ?> </h3> 
-                    
-              <?php 
-              }      
-            
-            ?>
+                    if(isset($_GET["verify"]))
+                        {
+                            ?>
+                                <section class="bgwhite p-t-55 p-b-65">
+                                        <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 col-lg-12 p-b-50">
+                                                                <div class="row" style="text-align:center">
+                                                                <h4 class="m-text26 p-b-36 p-t-15"> <?= $_registerController ->verifyEmail($_GET["email"], $_GET["hash"]); ?> </h4> 
+                                                                </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                </section>
 
-	<?php  ?>
+                        <?php 
+                        }
+                        else
+                        {
+                            include("./views/register/register-content.inc.php");
+                        }
+            ?>
+                    
+                
+              
+
+	<?php  }?>
         
         
 

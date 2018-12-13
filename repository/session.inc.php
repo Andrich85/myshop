@@ -1,13 +1,12 @@
 <?php
 
 namespace repository;
-require_once('./repository/dbConnection.inc.php');
-//require_once('..\repository\DbConnection.inc.php');
     
 
 class Session{
     
     private $_db;
+    public $UserIsAuthenticated;
 
     public function __construct() {
 //        $this->_db = new \repository\DbConnection();
@@ -16,6 +15,11 @@ class Session{
 //        $query = "CALL storeCookie('" . $cookie . "');";
 //        $this ->_db->runQuery($query);
         
+    }
+    
+    static function authenticateUser()
+    {
+        $UserIsAuthenticated = true;
     }
     
 }

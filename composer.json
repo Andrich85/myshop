@@ -1,8 +1,10 @@
 {
     "require": {
-        "sendgrid/sendgrid": "~7"
+        "sendgrid/sendgrid": "~7",
+        "delight-im/auth": "^8.1"
     },
     "require-dev": {
         "vlucas/phpdotenv": "^2.5"
     }
+   
 }

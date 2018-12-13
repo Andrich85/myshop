@@ -1,19 +1,8 @@
-<?php 
-IF (!isset($_COOKIE["USER"]))
-{
- $cookie_value = rand(192939, 32782) + rand(3939183,4883894) + rand (838138783,4948);
- setcookie("USER",$cookie_value);
-}
-?>
-
-
-
-
 <head>
 	<title>Product Detail</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  
+      <?php require_once './config.php'; ?>
             <?php include("./views/bundles/bundlescss.php") ?>
 </head>
 <body class="animsition">

@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/xampp/htdocs/myshop/controllers/shoppingcart/shoppingcart.inc.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/js/cart/cartAjaxActions.js</file>
-            <file>file:/D:/xampp/htdocs/myshop/views/shoppingcart/shoppingcart-content.inc.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/model/shoppingCart/shoppingCart.inc.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/views/shared/_logininformations.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/login.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/controllers/login/login.inc.php</file>
             <file>file:/D:/xampp/htdocs/myshop/index.php</file>
         </group>
     </open-files>

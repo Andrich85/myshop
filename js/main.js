@@ -242,3 +242,57 @@
     });
 
 })(jQuery);
+
+/*[ LogOut]
+    ===========================================================*/
+function logOut()
+{
+    $.ajax(
+                                                {
+                                                    type:"POST",
+                                                    url: "views/login/login-content.inc.php", 
+                                                    success: function(result){
+                                                           window.location.href = "login.php";
+
+                                                        },
+
+                                                    dataType: 'html',
+                                                    data:
+                                                            
+                                                            
+                                                        {
+                                                          logout: 1
+                                                        }
+                                            })
+                                            event.preventDefault();
+                                         
+                                            
+};
+
+/*[ LogOut]
+    ===========================================================*/
+function logIn(userName, password)
+{
+    $.ajax(
+                                                {
+                                                    type:"POST",
+                                                    url: "views/login/login-content.inc.php", 
+                                                    success: function(result){
+                                                            window.location.href = "index.php";
+
+                                                        },
+
+                                                    dataType: 'html',
+                                                    data:
+                                                            
+                                                            
+                                                        {
+                                                          userName: userName,
+                                                          password: password
+                                                        }
+                                            })
+                                           
+                                         
+                                            
+};
+

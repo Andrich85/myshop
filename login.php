@@ -1,11 +1,16 @@
 <head>
-	<title>Shopping Cart</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-      <?php require_once './config.php'; ?>
-            <?php include("./views/bundles/bundlescss.php") ?>
-            <?php include("./config.php") ?>
+    <?php require_once './config.php'; ?>
+       
 </head>
+
+
+
+
+?>
+
 <body class="animsition">
 
 	<!-- Header -->
@@ -13,8 +18,10 @@
         <!-- Bread Crumb -->
 	<?php include("./views/shared/_breadcrumb.php") ?>
 	
-        <!-- Shop Content -->
-	<?php include("./views/shop/shop-content.inc.php") ?>
+       <!-- Login Content -->
+	<?php include("./views/login/login-content.inc.php") ?>
+        
+        
 
         <!-- Footer -->
 	<?php include("./views/shared/_footer.php") ?>
@@ -27,7 +34,7 @@
 	<div id="dropDownSelect2"></div>
 
         <!-- Back to Top-->
-        <?php include("./views/product-detail/scripts.php") ?>
+        <?php include("./views/register/scripts.php") ?>
 
 </body>
 </html>

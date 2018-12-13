@@ -1,20 +1,7 @@
 <?php
-
 namespace controllers;
 
-if(isset($_POST["cartAction"])  || isset($_POST["cartUpdated"])  )
-{
-    require_once './../../model/shoppingCart/shoppingCart.inc.php';
-    require_once './../../viewModel/shoppingCart/shoppingCart.inc.php';
-    require_once './../../repository/dbConnection.inc.php';
-}
-else
-{
-    require_once './model/shoppingcart/shoppingcart.inc.php';
-    require_once './viewModel/shoppingCart/shoppingCart.inc.php';
-    require_once './repository/dbConnection.inc.php';    
-}
-
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/config.php';
 
 class ShoppingCart
 {
@@ -24,7 +11,7 @@ class ShoppingCart
     public $SessionId;
     
     public function __construct() {
-        $this->Db = new \repository\DbConnection();
+        $this->Db = $GLOBALS["Db"];
         if (isset($_COOKIE["USER"]))
         {
             $this->SessionId = $_COOKIE["USER"];

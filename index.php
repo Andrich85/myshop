@@ -1,20 +1,13 @@
 
-<?php
-require_once('./repository/session.inc.php');
-IF (!isset($_COOKIE["USER"]))
-{
- $cookie_value = rand(19293939, 3278372872) + rand(393989183,488493894) + rand (838138783,4948948);
- setcookie("USER",$cookie_value);
-}
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php require_once './config.php'; ?>
 	<title>Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Bundle CSS -->
+        
 	<?php include("./views/bundles/bundlescss.php") ?>
 </head>
 

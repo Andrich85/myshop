@@ -52,6 +52,7 @@
 	<script src="js/main.js"></script>
         <script src="./vendor/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
         <script src="js/register/register.js"></script>
+        <script src="js/login/login.js"></script>
 <!--===============================================================================================-->
     
                                                    

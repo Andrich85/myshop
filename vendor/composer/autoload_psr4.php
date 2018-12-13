@@ -11,4 +11,9 @@ return array(
     'SendGrid\\Contacts\\' => array($vendorDir . '/sendgrid/sendgrid/lib/contacts'),
     'SendGrid\\' => array($vendorDir . '/sendgrid/php-http-client/lib', $vendorDir . '/sendgrid/sendgrid/lib'),
     'Dotenv\\' => array($vendorDir . '/vlucas/phpdotenv/src'),
+    'Delight\\Http\\' => array($vendorDir . '/delight-im/http/src'),
+    'Delight\\Db\\' => array($vendorDir . '/delight-im/db/src'),
+    'Delight\\Cookie\\' => array($vendorDir . '/delight-im/cookie/src'),
+    'Delight\\Base64\\' => array($vendorDir . '/delight-im/base64/src'),
+    'Delight\\Auth\\' => array($vendorDir . '/delight-im/auth/src'),
 );

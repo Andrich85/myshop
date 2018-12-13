@@ -1,15 +1,18 @@
 <?php
+require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/config.php' ?>
+
+<?php
 //require_once ('../../controllers/shoppingCart/shoppingCart.inc.php');
 
 $model = [];
  
-
+$_cartController = new controllers\ShoppingCart();
+    
 if(isset($_POST["cartAction"]))
 {
-    include ('./../../controllers/shoppingcart/shoppingcart.inc.php');
+   
     
     
-    $_cartController = new controllers\ShoppingCart();
     
     $action = $_POST["cartAction"];
     $productId = $_POST["productId"];
@@ -44,8 +47,8 @@ if(isset($_POST["cartAction"]))
 }
 
 else{
-    include ('./controllers/shoppingcart/shoppingcart.inc.php');
-    $_cartController  = new controllers\ShoppingCart();
+  
+    
     $model = $_cartController -> getContentBySessionId($_cartController->SessionId);
 }
 

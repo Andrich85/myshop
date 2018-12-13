@@ -1,12 +1,3 @@
-<?php 
-IF (!isset($_COOKIE["USER"]))
-{
- $cookie_value = rand(192939, 32782) + rand(3939183,4883894) + rand (838138783,4948);
- setcookie("USER",$cookie_value);
-}
-?>
-
-
 <head>
 	<title>Shopping Cart</title>
 	<meta charset="UTF-8">
