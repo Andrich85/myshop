@@ -4,14 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/xampp/htdocs/myshop/views/shop/shop-content.inc.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/controllers/shoppingcart/shoppingcart.inc.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/views/shared/_header.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/repository/dbConnection.inc.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/views/shared/_productCategoriesList.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/views/product-detail/scripts.php</file>
             <file>file:/D:/xampp/htdocs/myshop/config.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/views/shared/_logininformations.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/views/shared/_productsgallery.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/views/home/offers.php</file>
-            <file>file:/D:/xampp/htdocs/myshop/controllers/products/product.inc.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/shop.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/views/shop/scripts.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/login.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/views/product-detail/product-detail-content.php</file>
+            <file>file:/D:/xampp/htdocs/myshop/js/shop/shop.js</file>
             <file>file:/D:/xampp/htdocs/myshop/controllers/shop/shop.inc.php</file>
         </group>
     </open-files>

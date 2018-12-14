@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Dic 10, 2018 alle 08:04
--- Versione del server: 10.1.37-MariaDB
--- Versione PHP: 7.1.24
+-- Generation Time: Dec 14, 2018 at 05:06 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,10 +21,12 @@ SET time_zone = "+00:00";
 --
 -- Database: `myshop`
 --
+CREATE DATABASE IF NOT EXISTS `myshop` DEFAULT CHARACTER SET latin1 COLLATE latin1_general_ci;
+USE `myshop`;
 
 DELIMITER $$
 --
--- Procedure
+-- Procedures
 --
 DROP PROCEDURE IF EXISTS `storeCookie`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `storeCookie` (IN `cookie` TEXT)  BEGIN
@@ -42,7 +44,7 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `customer`
+-- Table structure for table `customer`
 --
 
 DROP TABLE IF EXISTS `customer`;
@@ -58,7 +60,7 @@ CREATE TABLE `customer` (
   `zip` int(11) NOT NULL,
   `emailverified` text COLLATE latin1_general_ci NOT NULL,
   `registrationdate` text COLLATE latin1_general_ci NOT NULL,
-  `verificationcode` int(11) NOT NULL,
+  `verificationcode` varchar(255) COLLATE latin1_general_ci NOT NULL,
   `phone` text COLLATE latin1_general_ci NOT NULL,
   `phone2` text COLLATE latin1_general_ci NOT NULL,
   `country` text COLLATE latin1_general_ci NOT NULL,
@@ -67,18 +69,18 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dump dei dati per la tabella `customer`
+-- Dumping data for table `customer`
 --
 
 INSERT INTO `customer` (`id`, `user`, `email`, `password`, `firstname`, `lastname`, `city`, `state`, `zip`, `emailverified`, `registrationdate`, `verificationcode`, `phone`, `phone2`, `country`, `address`, `address2`) VALUES
-(0, '', 'and.ric.11@outlook.it', '123', 'Andrea', 'Andrea', '', '', 0, '', '', 0, '', '', '', '', ''),
-(0, '', 'and.ric.11@outlook.com', '123', 'Andrea', 'Andrea', '', '', 0, '', '', 0, '', '', '', '', ''),
-(0, '', 'and.ric.11@outlook.comd', '1', 'Andrea', 'Andrea', '', '', 0, '', '', 0, '', '', '', '', '');
+(29, '', 'ricciardi85@gmail.com', '22', 'Andrea', 'Andrea', '', '', 0, '1', '', 'pfuef5kx', '', '', '', '', ''),
+(30, '', 'rag@out.it', '12', 'Andrea', 'Andrea', '', '', 0, '', '2018-12-10', 'zq2e8z6r', '', '', '', '', ''),
+(31, '', '3123@ot.it', '12', 'Andrea', 'Andrea', '', '', 0, '1', '2018-12-10', 'n8yu38ge', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `product`
+-- Table structure for table `product`
 --
 
 DROP TABLE IF EXISTS `product`;
@@ -108,7 +110,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `product`
+-- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id`, `name`, `brand`, `description`, `additionalinformations`, `categoryid`, `price`, `discount`, `availableqty`, `featured`, `new`, `thumbnail`, `picture1`, `picture2`, `picture3`, `picture4`, `picture5`, `picture6`, `picture7`, `picture8`, `picture9`, `picture10`) VALUES
@@ -124,7 +126,7 @@ INSERT INTO `product` (`id`, `name`, `brand`, `description`, `additionalinformat
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `product_category`
+-- Table structure for table `product_category`
 --
 
 DROP TABLE IF EXISTS `product_category`;
@@ -136,7 +138,7 @@ CREATE TABLE `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `product_category`
+-- Dumping data for table `product_category`
 --
 
 INSERT INTO `product_category` (`id`, `name`, `thumbnails`, `thumbnaill`) VALUES
@@ -149,7 +151,7 @@ INSERT INTO `product_category` (`id`, `name`, `thumbnails`, `thumbnaill`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `session`
+-- Table structure for table `session`
 --
 
 DROP TABLE IF EXISTS `session`;
@@ -159,7 +161,7 @@ CREATE TABLE `session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dump dei dati per la tabella `session`
+-- Dumping data for table `session`
 --
 
 INSERT INTO `session` (`id`, `cookie`) VALUES
@@ -168,7 +170,7 @@ INSERT INTO `session` (`id`, `cookie`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `shopping_cart`
+-- Table structure for table `shopping_cart`
 --
 
 DROP TABLE IF EXISTS `shopping_cart`;
@@ -182,7 +184,7 @@ CREATE TABLE `shopping_cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dump dei dati per la tabella `shopping_cart`
+-- Dumping data for table `shopping_cart`
 --
 
 INSERT INTO `shopping_cart` (`id`, `orderId`, `productId`, `orderedQty`, `userId`, `sessionId`) VALUES
@@ -192,59 +194,244 @@ INSERT INTO `shopping_cart` (`id`, `orderId`, `productId`, `orderedQty`, `userId
 (37, 0, 4, 1, NULL, '923205968'),
 (38, 0, 4, 5, NULL, '923205968'),
 (41, 0, 5, 1, NULL, '876932621'),
-(42, 0, 5, 3, NULL, '876932621');
+(42, 0, 5, 3, NULL, '876932621'),
+(43, 0, 3, 1, NULL, '1025586969'),
+(44, 0, 4, 1, NULL, '1025586969'),
+(45, 0, 4, 1, NULL, '621844413'),
+(46, 0, 3, 1, NULL, '621844413'),
+(47, 0, 3, 1, NULL, '40414'),
+(48, 0, 4, 1, NULL, '40414'),
+(49, 0, 4, 1, NULL, '58330'),
+(50, 0, 5, 1, NULL, '58330'),
+(51, 0, 4, 1, NULL, '43082'),
+(52, 0, 5, 1, NULL, '43082'),
+(53, 0, 6, 1, NULL, '43082');
+
+-- --------------------------------------------------------
 
 --
--- Indici per le tabelle scaricate
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(249) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `username` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(2) UNSIGNED NOT NULL DEFAULT '0',
+  `verified` tinyint(1) UNSIGNED NOT NULL DEFAULT '0',
+  `resettable` tinyint(1) UNSIGNED NOT NULL DEFAULT '1',
+  `roles_mask` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `registered` int(10) UNSIGNED NOT NULL,
+  `last_login` int(10) UNSIGNED DEFAULT NULL,
+  `force_logout` mediumint(7) UNSIGNED NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`, `username`, `status`, `verified`, `resettable`, `roles_mask`, `registered`, `last_login`, `force_logout`) VALUES
+(11, 'ricciardi85@gmail.com', '$2y$10$R7.Xo7gs6831jAbG4SZ61uYdEHt3Lcxu3uq65OmQ7cUk5F.whm4F6', 'Andrich', 0, 1, 1, 0, 1544533412, NULL, 0),
+(12, 'ricciardi854@gmail.com', '$2y$10$fsHXPo2I1HLRy1XKL9QSFe1ola9drga6Wjq8PWV03Pgrz4Hog9e.e', 'Andrich4', 0, 1, 1, 0, 1544540421, NULL, 0),
+(13, 'ricciardi8533@gmail.com', '$2y$10$QYRAxM7oMI5JNdJreUbq2eXtwAbwqDE1KFrESYtjvazR.PtoIp1tC', 'Andrich333', 0, 1, 1, 0, 1544540435, 1544798273, 6),
+(14, 'ajfg@outlook.it', '$2y$10$cZtzOK2AVtHlcOZ4Z6qdL.9PHZsSbi.sg5NJi7Uhijb9WXOgULZCK', 'a1234', 0, 1, 1, 0, 1544623840, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_confirmations`
+--
+
+DROP TABLE IF EXISTS `users_confirmations`;
+CREATE TABLE `users_confirmations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `email` varchar(249) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `selector` varchar(16) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `token` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `expires` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_remembered`
+--
+
+DROP TABLE IF EXISTS `users_remembered`;
+CREATE TABLE `users_remembered` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user` int(10) UNSIGNED NOT NULL,
+  `selector` varchar(24) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `token` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `expires` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_resets`
+--
+
+DROP TABLE IF EXISTS `users_resets`;
+CREATE TABLE `users_resets` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user` int(10) UNSIGNED NOT NULL,
+  `selector` varchar(20) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `token` varchar(255) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `expires` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_throttling`
+--
+
+DROP TABLE IF EXISTS `users_throttling`;
+CREATE TABLE `users_throttling` (
+  `bucket` varchar(44) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
+  `tokens` float UNSIGNED NOT NULL,
+  `replenished_at` int(10) UNSIGNED NOT NULL,
+  `expires_at` int(10) UNSIGNED NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users_throttling`
+--
+
+INSERT INTO `users_throttling` (`bucket`, `tokens`, `replenished_at`, `expires_at`) VALUES
+('ejWtPDKvxt-q7LZ3mFjzUoIWKJYzu47igC8Jd9mffFk', 49.4564, 1544523932, 1545063932),
+('CUeQSH1MUnRpuE3Wqv_fI3nADvMpK_cg6VpYK37vgIw', 3.02565, 1544523397, 1544955397);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Indici per le tabelle `product`
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `categoryid` (`categoryid`);
 
 --
--- Indici per le tabelle `product_category`
+-- Indexes for table `product_category`
 --
 ALTER TABLE `product_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `session`
+-- Indexes for table `session`
 --
 ALTER TABLE `session`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indici per le tabelle `shopping_cart`
+-- Indexes for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Indexes for table `users_confirmations`
+--
+ALTER TABLE `users_confirmations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `selector` (`selector`),
+  ADD KEY `email_expires` (`email`,`expires`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `users_remembered`
+--
+ALTER TABLE `users_remembered`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `selector` (`selector`),
+  ADD KEY `user` (`user`);
+
+--
+-- Indexes for table `users_resets`
+--
+ALTER TABLE `users_resets`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `selector` (`selector`),
+  ADD KEY `user_expires` (`user`,`expires`);
+
+--
+-- Indexes for table `users_throttling`
+--
+ALTER TABLE `users_throttling`
+  ADD PRIMARY KEY (`bucket`),
+  ADD KEY `expires_at` (`expires_at`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT per la tabella `session`
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `shopping_cart`
+-- AUTO_INCREMENT for table `shopping_cart`
 --
 ALTER TABLE `shopping_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- Limiti per le tabelle scaricate
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `users_confirmations`
+--
+ALTER TABLE `users_confirmations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users_remembered`
+--
+ALTER TABLE `users_remembered`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users_resets`
+--
+ALTER TABLE `users_resets`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- Limiti per la tabella `product`
+-- Constraints for table `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`categoryid`) REFERENCES `product_category` (`id`) ON DELETE CASCADE;
