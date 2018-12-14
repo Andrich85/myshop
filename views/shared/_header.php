@@ -51,7 +51,7 @@
 							</li>
 
 							<li>
-								<a href="product.html">Shop</a>
+								<a href="shop.php">Shop</a>
 							</li>
 
 							<li class="sale-noti">

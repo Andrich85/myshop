@@ -27,7 +27,7 @@
 	<div id="dropDownSelect2"></div>
 
         <!-- Back to Top-->
-        <?php include("./views/product-detail/scripts.php") ?>
+        <?php include("./views/shop/scripts.php") ?>
 
 </body>
 </html>

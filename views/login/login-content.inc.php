@@ -18,12 +18,8 @@ if(isset($_POST["logout"]))
         }
         else
         {
-            try
-            { require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/config.php';}
-            catch (Exception $e)  {
-                    $a = $e -> getMessage();
-            }
-           
+             include $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/config.php';
+
             $GLOBALS["Authorization"] ->   logOutEverywhere();
         }
         

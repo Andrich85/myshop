@@ -23,6 +23,7 @@
     require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/controllers/shoppingcart/shoppingcart.inc.php';
     require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/controllers/products/product.inc.php';
     require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/controllers/orders/order.inc.php';
+    require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/controllers/shop/shop.inc.php';
     
     // Start session
     // session_start();
