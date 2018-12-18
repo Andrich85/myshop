@@ -8,7 +8,6 @@ class Product
     public $Name;
     public $Brand;
     public $Description;
-    public $AdditionalInformations;
     public $CategoryId;
     public $Price;
     public $Discount;

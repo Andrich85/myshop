@@ -13,6 +13,7 @@
     
     // ViewModel
     require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/viewModel/shoppingCart/shoppingCart.inc.php';
+    require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/viewModel/shop/shop.inc.php';
 
     //Views
     require_once $_SERVER['CONTEXT_DOCUMENT_ROOT'] .'/myshop/views/bundles/bundlescss.php';

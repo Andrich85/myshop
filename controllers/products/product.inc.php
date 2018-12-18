@@ -35,6 +35,19 @@ class Product {
       
        return  $this->Model;
     }
+    public function productBrands(){
+        $_db = $this->Db;
+       $table= $_db->getTable("select distinct brand from product");
+       foreach ($table as $key => $value){
+           $item = new \model\Product();
+           $item->Brand = $value["brand"];
+          
+         
+           array_push($this->Model, $item);
+       }
+      
+       return  $this->Model;
+    }
     public  function featuredItems(){
        $_db = $this->Db;
        $table= $_db->getTable("select * from product where featured = 1");

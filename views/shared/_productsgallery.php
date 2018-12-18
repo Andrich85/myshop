@@ -6,29 +6,37 @@ if (isset($_GET['productCategory']))
 {
         if($_GET['productCategory'] == "undefined" && $_GET['filter'] == "undefined" )
         {
-            $model = $_productGalleryController ->productsGallery($_GET['productCategory'], $_GET['filter']);
+            $model = $_productGalleryController ->productsGallery($_GET['productCategory'], $_GET['filter'],$_GET['brand'],$_GET['priceMin'],$_GET['priceMax']);
         }
         if($_GET['productCategory'] == "undefined" && $_GET['filter'] != "undefined" )
         {
-            $model = $_productGalleryController ->productsGallery($_POST['productCategory'], null);
+            $model = $_productGalleryController ->productsGallery($_POST['productCategory'], null,$_GET['brand'],$_GET['priceMin'],$_GET['priceMax']);
         }
         if($_GET['productCategory'] != "undefined" && $_GET['filter'] != "undefined" )
         {
-            $model = $_productGalleryController ->productsGallery(null, null);
+            $model = $_productGalleryController ->productsGallery($_GET['productCategory'], $_GET['filter'],$_GET['brand'],$_GET['priceMin'],$_GET['priceMax']);
         }
         if($_GET['productCategory'] != "undefined" && $_GET['filter'] == "undefined" )
         {
-            $model = $_productGalleryController ->productsGallery(null, $_GET['filter']);
+            $model = $_productGalleryController ->productsGallery(null, $_GET['filter'],$_GET['brand'],$_GET['priceMin'],$_GET['priceMax']);
         }
 }
  else {
-    $model = $_productGalleryController ->productsGallery(null, null);
+    $model = $_productGalleryController ->productsGallery(null, null,null,null,null);
 }
 ?>
 <section id="productsGallery">
-<!-- Product -->
+<!-- Product --><div class="w-size14 p-t-30 respon5">
+				<h4 class="product-detail-name m-text16 p-b-13">
+                                        <?php if ($model[0] -> Category != ""){ echo $model[0] -> Category;} else {echo "All Categories";}; ?> -
+                                        <?php if ($model[0] -> Brand != ""){ echo $model[0] -> Brand;} else {echo "All Brands";}; ?>
+				</h4>
+                </div>
 					<div class="row">
-                                            <?php foreach ($model as $item){ ?>           
+                                            <?php $lstOfProducts =  $model[0] -> lstOfProducts;
+                                                    foreach ( $lstOfProducts as  $item){ 
+                                                
+                                                ?>           
 						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
 							<!-- Block2 -->
 							<div class="block2">
@@ -51,6 +59,7 @@ if (isset($_GET['productCategory']))
 								</div>
 
 								<div class="block2-txt p-t-20">
+                                                                    <h6><?= $item-> Brand ?></h6>
 									<a href="product-detail.php?id=<?=$item->Id ?>" class="block2-name dis-block s-text3 p-b-5">
 									<?= $item-> Name ?>
                                                                     </a>
@@ -75,6 +84,6 @@ if (isset($_GET['productCategory']))
 								</div>
 							</div>
 						</div>
-                                            <?php } ?>         
+                                                <?php } ?>         
 					</div>
 </section>

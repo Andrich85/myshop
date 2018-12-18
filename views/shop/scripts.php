@@ -50,4 +50,5 @@
 
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+        <script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
         <script src="js/shop/shop.js"></script>
